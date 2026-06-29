@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "module": "nodenext",
+        "target": "esnext",
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+    }
+}
