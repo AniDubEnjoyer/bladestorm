@@ -42,8 +42,8 @@ export default class MoveVec2<ElemType extends HTMLElement = HTMLElement> {
     private start() {
         if (!this._elem) return;
         const rect = this._elem.getBoundingClientRect();
-        const x = this._x || rect.x;
-        const y = this._y || rect.y;
+        const x = this._x !== undefined ? this._x : rect.x;
+        const y = this._y !== undefined ? this._y : rect.y;
         this._elem.style.left = `${x}px`;
         this._elem.style.top = `${y}px`;
         this._elem.style.position = "absolute";
