@@ -28,6 +28,9 @@ export default class MoveVec2<ElemType extends HTMLElement = HTMLElement> {
         if (!this._elem) return;
         if (!this._elem.parentElement) return;
         const rect = this._elem.parentElement.getBoundingClientRect();
+        this._x = rect.x;
+        this._y = rect.y;
+        if (!this._on) return;
         this._elem.style.left = `${rect.x}px`;
         this._elem.style.top = `${rect.y}px`;
     }
