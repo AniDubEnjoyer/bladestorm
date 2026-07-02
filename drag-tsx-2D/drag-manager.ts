@@ -11,7 +11,7 @@ class DragManager {
     public offsetHeightPercent = -0.5;
 
     constructor() {
-        addEventListener("mousemove", (e) => {
+        addEventListener("pointermove", (e) => {
             if (!this.current) return;
             const rect = this.current.elem.getBoundingClientRect();
             this.current.x = e.clientX + rect.width * this.offsetWidthPercent;

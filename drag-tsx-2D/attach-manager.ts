@@ -11,7 +11,8 @@ class AttachManager {
     public offsetHeightPercent = -0.5;
 
     constructor() {
-        addEventListener("mousemove", (e) => {
+        addEventListener("pointermove", (e) => {
+            console.log("pointermove");
             for (const moveVec2 of this.current) {
                 const rect = moveVec2.elem.getBoundingClientRect();
                 moveVec2.x = e.clientX + rect.width * this.offsetWidthPercent;
