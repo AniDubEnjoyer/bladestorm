@@ -20,6 +20,12 @@ class AttachManager {
             }
         });
     }
+
+    splice(x: MoveVec2) {
+        const i = attachManager.current.indexOf(x);
+        if (i === -1) return;
+        attachManager.current.splice(i, 1);
+    }
 }
 
 /**

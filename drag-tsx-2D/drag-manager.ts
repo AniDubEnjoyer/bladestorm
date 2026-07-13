@@ -18,6 +18,11 @@ class DragManager {
             this.current.y = e.clientY + rect.height * this.offsetHeightPercent;
         });
     }
+
+    remove(x: MoveVec2) {
+        if (dragManager.current != x) return;
+        dragManager.current = null;
+    }
 }
 
 /**

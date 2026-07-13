@@ -42,10 +42,9 @@ const css = `
  */
 export default function Drag(props: DragProps) {
     const elemRef: ElemRef = useRef(null);
-    const moveRef: MoveRef = props.moveRef || useRef(null);
+    const moveRef: MoveRef = useRef(null);
     const style = useCss(css);
 
-    // ~~~~~~~~~~~~ Event Handlers ~~~~~~~~~~~ //
     function down() {
         if (!elemRef.current.matches(":hover")) return;
         dragManager.current = moveRef.current;
@@ -56,24 +55,16 @@ export default function Drag(props: DragProps) {
         dragManager.current = null;
     }
 
-    // ~~~~~~~~~~~~~~~~~ Init ~~~~~~~~~~~~~~~~ //
     useEffect(() => {
-        if (!moveRef.current) {
-            moveRef.current = new MoveVec2(elemRef.current);
-        }
-
-        // ~~~~~~~~~~~~~~~ Cleanup ~~~~~~~~~~~~~~~ //
-        return () => {
-            if (dragManager.current != moveRef.current) return;
-            dragManager.current = null;
-        };
+        moveRef.current = new MoveVec2(elemRef.current);
+        return () => dragManager.remove(moveRef.current);
     }, []);
 
     // ====================================================== //
     // ======================== HTML ======================== //
     // ====================================================== //
     return (
-        <div className={`drag ${props.className}`} ref={elemRef} onPointerDown={down} onPointerUp={up}>
+        <div className={`drag ${props.className}`} ref={elemRef} onPointerDown={down} onPointerUp={up} {...style}>
             {props.children}
         </div>
     );

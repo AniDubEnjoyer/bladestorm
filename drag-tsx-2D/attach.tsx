@@ -42,28 +42,18 @@ const css = `
  */
 export default function Attach(props: AttachProps) {
     const elemRef: ElemRef = useRef(null);
-    const moveRef: MoveRef = props.moveRef || useRef(null);
+    const moveRef: MoveRef = useRef(null);
     const style = useCss(css);
 
-    // ~~~~~~~~~~~~ Event Handlers ~~~~~~~~~~~ //
     function enter() {
         elemRef.current.style.pointerEvents = "none";
         moveRef.current.enable();
         attachManager.current.push(moveRef.current);
     }
 
-    // ~~~~~~~~~~~~~~~~~ Init ~~~~~~~~~~~~~~~~ //
     useEffect(() => {
-        if (!moveRef.current) {
-            moveRef.current = new MoveVec2(elemRef.current, false);
-        }
-
-        // ~~~~~~~~~~~~~~~ Cleanup ~~~~~~~~~~~~~~~ //
-        return () => {
-            const i = attachManager.current.indexOf(moveRef.current);
-            if (i === -1) return;
-            attachManager.current.splice(i, 1);
-        };
+        moveRef.current = new MoveVec2(elemRef.current, false);
+        return () => attachManager.splice(moveRef.current);
     }, []);
 
     // ====================================================== //
