@@ -7,11 +7,8 @@ import Drag from "../drag-tsx-2D/drag.tsx";
 // #region Types
 // ##################################################################### //
 
-import type MoveVec2 from "../drag-tsx-2D/move-vec2.ts";
-
-interface Props {
-    moveRef: React.RefObject<MoveVec2<HTMLDivElement>>;
-    ref?: React.RefObject<typeof Token>;
+interface TokenProps {
+    ref?: React.RefObject<HTMLDivElement>;
 }
 
 // ##################################################################### //
@@ -39,13 +36,14 @@ const css = `
 // ##################################################################### //
 
 /**
- * A draggable 2D sprite.
+ * A draggable UI element.
  */
-export default function Token(props: Props) {
+export default function Token(props: TokenProps) {
+    const { ref } = props;
     const style = useCss(css);
 
     return (
-        <Drag moveRef={props.moveRef} ref={props.ref}>
+        <Drag ref={ref}>
             <div className="token-bg" {...style} />
         </Drag>
     );

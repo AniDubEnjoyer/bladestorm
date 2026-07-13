@@ -7,11 +7,8 @@ import Attach from "../drag-tsx-2D/attach.tsx";
 // #region Types
 // ##################################################################### //
 
-import type MoveVec2 from "../drag-tsx-2D/move-vec2.ts";
-
-interface Props {
-    moveRef: React.RefObject<MoveVec2<HTMLDivElement>>;
-    ref?: React.RefObject<typeof Equip>;
+interface EquipProps {
+    ref?: React.RefObject<HTMLDivElement>;
 }
 
 // ##################################################################### //
@@ -39,13 +36,14 @@ const css = `
 // ##################################################################### //
 
 /**
- * A 2D sprite that attaches onPointerEnter.
+ * An item that attaches to the player (the pointer) on collision.
  */
-export default function Equip(props: Props) {
+export default function Equip(props: EquipProps) {
+    const { ref } = props;
     const style = useCss(css);
 
     return (
-        <Attach moveRef={props.moveRef} ref={props.ref}>
+        <Attach ref={ref}>
             <div className="equip-bg" {...style} />
         </Attach>
     );

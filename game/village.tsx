@@ -25,7 +25,7 @@ export default function Village() {
 
     return (
         <div className="village" {...style}>
-            <TokenRow tokenCount={8} />
+            <TokenRow />
         </div>
     );
 }

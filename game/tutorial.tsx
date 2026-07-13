@@ -3,19 +3,8 @@ import * as React from "react";
 import { useRef } from "react";
 import { useCss } from "kremling";
 import Equip from "./equip.tsx";
+type ElemRef = React.RefObject<HTMLDivElement>;
 
-// ##################################################################### //
-// #region Types
-// ##################################################################### //
-
-import type MoveVec2 from "../drag-tsx-2D/move-vec2.ts";
-
-type EquipElemRef = React.RefObject<typeof Equip>;
-type EquipMoveRef = React.RefObject<MoveVec2<HTMLDivElement>>;
-
-// ##################################################################### //
-// #endregion
-// ##################################################################### //
 // ##################################################################### //
 // #region Config
 // ##################################################################### //
@@ -34,13 +23,12 @@ const css = `
  * UI for tutorial level.
  */
 export default function Tutorial() {
-    const equipElemRef: EquipElemRef = useRef(null);
-    const equipMoveRef: EquipMoveRef = useRef(null);
+    const equipElemRef: ElemRef = useRef(null);
     const style = useCss(css);
 
     return (
         <div className="tutorial" {...style}>
-            <Equip moveRef={equipMoveRef} ref={equipElemRef} />
+            <Equip ref={equipElemRef} />
         </div>
     );
 }

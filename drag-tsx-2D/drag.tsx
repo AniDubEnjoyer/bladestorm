@@ -9,14 +9,12 @@ import MoveVec2 from "./move-vec2.ts";
 // #region Types
 // ##################################################################### //
 
-type ElemRef = React.RefObject<HTMLDivElement>;
 type MoveRef = React.RefObject<MoveVec2<HTMLDivElement>>;
 
 interface DragProps {
     children?: React.ReactNode;
     className?: string;
-    ref?: React.RefObject<typeof Drag>;
-    moveRef?: MoveRef;
+    ref?: React.RefObject<HTMLDivElement>;
 }
 
 // ##################################################################### //
@@ -41,12 +39,12 @@ const css = `
  * A drag-and-drop 2D sprite.
  */
 export default function Drag(props: DragProps) {
-    const elemRef: ElemRef = useRef(null);
+    const { children, className, ref } = props;
     const moveRef: MoveRef = useRef(null);
     const style = useCss(css);
 
     function down() {
-        if (!elemRef.current.matches(":hover")) return;
+        if (!ref.current.matches(":hover")) return;
         dragManager.current = moveRef.current;
     }
 
@@ -56,16 +54,16 @@ export default function Drag(props: DragProps) {
     }
 
     useEffect(() => {
-        moveRef.current = new MoveVec2(elemRef.current);
+        moveRef.current = new MoveVec2(ref.current);
         return () => dragManager.remove(moveRef.current);
-    }, []);
+    }, [ref, moveRef]);
 
     // ====================================================== //
     // ======================== HTML ======================== //
     // ====================================================== //
     return (
-        <div className={`drag ${props.className}`} ref={elemRef} onPointerDown={down} onPointerUp={up} {...style}>
-            {props.children}
+        <div className={`drag ${className}`} ref={ref} onPointerDown={down} onPointerUp={up} {...style}>
+            {children}
         </div>
     );
 }

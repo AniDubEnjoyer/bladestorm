@@ -9,14 +9,12 @@ import MoveVec2 from "./move-vec2.ts";
 // #region Types
 // ##################################################################### //
 
-type ElemRef = React.RefObject<HTMLDivElement>;
 type MoveRef = React.RefObject<MoveVec2<HTMLDivElement>>;
 
 interface AttachProps {
     children?: React.ReactNode;
     className?: string;
-    ref?: React.RefObject<typeof Attach>;
-    moveRef?: MoveRef;
+    ref?: React.RefObject<HTMLDivElement>;
 }
 
 // ##################################################################### //
@@ -38,30 +36,30 @@ const css = `
 // ##################################################################### //
 
 /**
- * A 2D sprite that attaches to the pointer onMouseEnter.
+ * A 2D sprite that attaches onPointerEnter.
  */
 export default function Attach(props: AttachProps) {
-    const elemRef: ElemRef = useRef(null);
+    const { children, className, ref } = props;
     const moveRef: MoveRef = useRef(null);
     const style = useCss(css);
 
     function enter() {
-        elemRef.current.style.pointerEvents = "none";
+        ref.current.style.pointerEvents = "none";
         moveRef.current.enable();
         attachManager.current.push(moveRef.current);
     }
 
     useEffect(() => {
-        moveRef.current = new MoveVec2(elemRef.current, false);
+        moveRef.current = new MoveVec2(ref.current, false);
         return () => attachManager.splice(moveRef.current);
-    }, []);
+    }, [ref, moveRef]);
 
     // ====================================================== //
     // ======================== HTML ======================== //
     // ====================================================== //
     return (
-        <div className={`attach ${props.className}`} ref={elemRef} onPointerEnter={enter} {...style}>
-            {props.children}
+        <div className={`attach ${className}`} ref={ref} onPointerEnter={enter} {...style}>
+            {children}
         </div>
     );
 }
