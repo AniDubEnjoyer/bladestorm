@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 887 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <path d="M444,0L887,256L887,768L444,1024L0,768L0,256C0,256 443.999,0 444,0Z"
+        style="fill:url(#_Radial1);stroke:rgb(79,2,0);stroke-width:40px;" />
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="matrix(443.5,0,0,512,443.5,512)">
+            <stop offset="0" style="stop-color:white;stop-opacity:1" />
+            <stop offset="1" style="stop-color:rgb(107,106,123);stop-opacity:1" />
+        </radialGradient>
+    </defs>
+</svg>
