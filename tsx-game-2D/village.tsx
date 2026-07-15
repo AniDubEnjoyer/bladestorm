@@ -1,7 +1,7 @@
 "use strict";
 import * as React from "react";
 import { useCss } from "kremling";
-import TokenRow from "./tokenRow.tsx";
+import TokenRow from "./token-row.tsx";
 
 // ##################################################################### //
 // #region Config

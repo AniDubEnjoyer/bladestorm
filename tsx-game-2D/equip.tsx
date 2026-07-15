@@ -1,7 +1,7 @@
 "use strict";
 import * as React from "react";
 import { useCss } from "kremling";
-import Attach from "../drag-tsx-2D/attach.tsx";
+import Attach from "../tsx-drag-2D/attach.tsx";
 
 // ##################################################################### //
 // #region Types
