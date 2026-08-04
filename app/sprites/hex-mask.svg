@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%"
+    height="100%" viewBox="0 0 3696 4267" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <path id="Visible-Area" serif:id="Visible Area"
+        d="M1850,0l1845.833,1066.667l0,2133.333l-1845.833,1066.667l-1850,-1066.667l0,-2133.333c0,-0 1849.996,-1066.666 1850,-1066.667Z"
+        style="fill:#fff;stroke:#fff;stroke-width:166.67px;" />
+    <path id="Invisible-Area" serif:id="Invisible Area"
+        d="M0,966.723l0,-966.723l1676.66,0l-1676.66,966.723Zm2023.145,-966.723l1672.689,0l0,966.61l-1672.689,-966.61Zm1672.689,3300.056l0,966.61l-1672.689,0l1672.689,-966.61Zm-2019.173,966.61l-1676.66,0l0,-966.723l1676.66,966.723Z" />
+</svg>
