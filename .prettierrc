@@ -1,0 +1,28 @@
+{
+    "experimentalTernaries": true,
+    "experimentalOperatorPosition": "start",
+
+    "tabWidth": 4,
+    "printWidth": 80,
+
+    "overrides": [
+        {
+            "files": ["*.html", "*.jsx", "*.tsx"],
+            "options": {
+                "printWidth": 160
+            }
+        },
+        {
+            "files": "*.d.ts",
+            "options": {
+                "printWidth": 160
+            }
+        },
+        {
+            "files": "*.schema.json",
+            "options": {
+                "printWidth": 160
+            }
+        }
+    ]
+}

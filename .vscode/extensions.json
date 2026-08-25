@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "jock.svg",
+        "arcanis.vscode-zipfs",
+        "dbaeumer.vscode-eslint"
+    ]
+}
